@@ -134,7 +134,7 @@ func NewReader(r io.Reader, lazySamples bool) (*Reader, error) {
 			h.SampleNames, err = parseSampleLine(line)
 			verr.Add(err, LineNumber)
 			//h.Validate(verr)
-			break
+			break	// break this loop and only handle vcf header information.
 
 		} else {
 			e := fmt.Errorf("unexpected header line: %s", line)
