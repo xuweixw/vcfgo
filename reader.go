@@ -145,6 +145,7 @@ func NewReader(r io.Reader, lazySamples bool) (*Reader, error) {
 	return reader, reader.Error()
 }
 
+// makeFields slices each variation line into a subslice, the INFO and FORMAT fields place together at the penultimate element. 
 func makeFields(line []byte) [][]byte {
 	fields := bytes.SplitN(line, []byte{'\t'}, 9)
 	s := 0
